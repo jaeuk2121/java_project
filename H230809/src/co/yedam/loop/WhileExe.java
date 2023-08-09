@@ -40,7 +40,7 @@ public class WhileExe {
 		int dice2 = 0;
 		int a = 0;
 		
-		while(dice1 + dice2 != 5) {
+		while(dice1 + dice2 != 5) {//1
 			dice1 = (int) ((Math.random()*6)+1);
 			dice2 = (int) ((Math.random()*6)+1);
 			a++;

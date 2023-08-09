@@ -1,7 +1,7 @@
 package co.yedam.condition;
 
 public class IfExe {
-		public static void main(String[] args) {
+		public static void main(String[] args) {//1
 			int score = 60;
 			score = (int) (Math.random()*100)+1;
 			

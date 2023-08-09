@@ -2,7 +2,7 @@ package co.yedam.condition;
 
 public class ConditionExe {
 	public static void main(String[] args) {
-		//임의의수
+		//임의의수1
 		//1은 가위 2 바위 3보
 		int rsp;
 		rsp = (int) (Math.random()*3)+1;

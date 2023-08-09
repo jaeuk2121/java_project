@@ -1,6 +1,6 @@
 package co.yedam.loop;
 
-public class ForExe {
+public class ForExe {//1q
 public static void main(String[] args) {
 	int sum = 0;
 	sum = sum + 1;
