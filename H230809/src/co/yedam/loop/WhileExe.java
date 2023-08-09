@@ -35,7 +35,7 @@ public class WhileExe {
 		}
 		System.out.println(sum);
 		
-		//주사위 합이 5
+		//주사위 합이 5.
 		int dice1 = 0;
 		int dice2 = 0;
 		int a = 0;
