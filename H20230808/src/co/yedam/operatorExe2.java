@@ -3,7 +3,7 @@ package co.yedam;
 import java.util.Scanner;
 
 /*
- * 은행app
+ * 은행app1
  */
 public class operatorExe2 {
 	public static void main(String[] args) {
@@ -29,10 +29,20 @@ public class operatorExe2 {
 			    	balance= balance + val;
 			    }
 			    System.out.println("통장 잔고: " + balance);
-				
 			}else if (menu == 2) {
 				System.out.print("출금액 입력>> ");
-				balance = balance - val;
+				int val = Integer.parseInt(scn.nextLine());
+				
+				if(balance-val < 0) { 
+					System.out.println("불가합니다");
+				}else if(balance < val) {
+					System.out.println("불가합니다");
+				}else {
+					
+					balance = balance - val;
+				}
+				
+				
 				System.out.println("통장 잔고: " + balance);
 				
 			}else if (menu == 3) {
