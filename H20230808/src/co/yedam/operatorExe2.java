@@ -3,7 +3,7 @@ package co.yedam;
 import java.util.Scanner;
 
 /*
- * 은행app1
+ * 은행app11
  */
 public class operatorExe2 {
 	public static void main(String[] args) {
