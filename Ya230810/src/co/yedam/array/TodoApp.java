@@ -1,5 +1,7 @@
 package co.yedam.array;
 
+import java.util.Scanner;
+
 public class TodoApp {
 
 	public static void main(String[] args) {
@@ -8,6 +10,28 @@ public class TodoApp {
 		//완료 : 1 2 4 선택, 미완상태의 1,2,4,의 완료상태로 바꿔주면 됨 (불린써서)
 		//조회(날짜): 0812/ 		1 2 4 3 6 5
 		//미완료 : 
+		
+		Scanner scn = new Scanner(System.in);
+		boolean run = true;
+		
+		while(run) {
+			System.out.println("1. 등록 2. 완료 3. 조회(날짜) 4. 미완료 5. 종료");
+			System.out.print("선택 >> ");
+            int menu = Integer.parseInt(scn.nextLine());
+            
+            switch(menu) {
+            case 1:
+            	
+            case 2:
+            	
+            case 3:
+            	
+            case 4:
+            	
+            case 5:
+            	
+            }
+		}
 	}
 	
 	
