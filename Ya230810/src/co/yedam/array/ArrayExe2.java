@@ -1,9 +1,5 @@
 package co.yedam.array;
 
-class Student {
-	String name;
-	int score;
-}
 
 public class ArrayExe2 {
 	public static void main(String[] args) {
