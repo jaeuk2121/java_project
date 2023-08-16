@@ -65,14 +65,14 @@ public class FriendApp {
 		}
 		System.out.println("OK");
 	}
-	public static void edit() {
+	public static void  edit () {
 		
 		System.out.println("이름>>");
 		name = scn.nextLine();
 		if(!checkFriend(name)) {
 			System.out.println("찾는 이름이 없습니다.");
 			break;
-		}
+		}                            
 		System.out.println("연락처>>");
 		phone = scn.nextLine();
 		
