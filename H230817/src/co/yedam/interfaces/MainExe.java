@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MainExe {
 	public static void main(String[] args) {
-		Dao dao = new OracleDao(); //interface 알아보기
+		Dao dao = new OracleDao(); //interface 알아보기1
 		
 			Scanner scn = new Scanner(System.in);
 			boolean run = true;
