@@ -4,7 +4,7 @@ public class Example01 {
 	public static void main(String[] args) {
 		int[][] intAry = new int[5][5]; //2차원배열 intAry[0]
 		
-		//System.out.println(intAry[2][2]);
+		//System.out.println(intAry[2][2]);1
 		
 		int no = 1;
 		for(int r = 0 ; r <5; r++) {
