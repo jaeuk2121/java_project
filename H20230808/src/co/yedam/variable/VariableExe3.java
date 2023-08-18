@@ -2,7 +2,7 @@ package co.yedam.variable;
 
 public class VariableExe3 {
 	
-	int num = 101; // 전체에 통하는 num
+	int num = 101; // 전체에 통하는 num1
 	
 	public void showInfo() {
 		int num = 100 + this.num; //this.num = 101
