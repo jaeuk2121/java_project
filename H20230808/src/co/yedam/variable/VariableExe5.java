@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class VariableExe5 {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in) ;//스캐너 (키보드입력)
+		Scanner scan = new Scanner(System.in) ;//스캐너 (키보드입력)1
 		
 		
 		
