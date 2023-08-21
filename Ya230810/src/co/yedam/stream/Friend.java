@@ -1,4 +1,4 @@
-package co.yedam.friend;
+package co.yedam.stream;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

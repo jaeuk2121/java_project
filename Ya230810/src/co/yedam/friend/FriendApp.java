@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import co.yedam.stream.Friend;
+
 
 
 
@@ -39,7 +41,13 @@ public class FriendApp {
 
 	public void start() {
 		boolean run = true;
-		userCheck();
+		while(true) {
+			if(userCheck()) {
+				break;
+			}
+			System.out.println("로그인 실패");
+		}
+		
 
 		while (run) {
 			System.out.println("1.추가 2.수정 3.삭제 4.목록");
