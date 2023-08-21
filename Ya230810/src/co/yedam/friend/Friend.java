@@ -11,7 +11,7 @@ public class Friend {
 		super();
 		this.name = name;
 		this.phone = phone;
-		this.birth = birth;
+		this.birth = birth; //1998-08-05 sdf.parse("1998-08-05")
 	}
 	public String getName() {
 		return name;
