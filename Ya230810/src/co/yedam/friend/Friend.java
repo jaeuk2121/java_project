@@ -1,5 +1,6 @@
 package co.yedam.friend;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Friend {
@@ -30,6 +31,11 @@ public class Friend {
 	}
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return "Friend [name=" + name + ", phone=" + phone + ", birth=" + sdf.format(birth) + "]";
 	}
 	
 	
