@@ -76,7 +76,7 @@ public class FriendApp2 {
 		
 		
 	}
-	
+//	String[] data = new Friend(data[0],data[1],data[2]);
 	private void loadFile() {
 		File file = new File("C:/temp/friendList.txt");
 		Scanner scn2 = null;
@@ -85,6 +85,7 @@ public class FriendApp2 {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	}
 
 	private String printString(String msg) {
