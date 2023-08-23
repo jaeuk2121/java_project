@@ -82,6 +82,22 @@ public class FriendApp2 {
 		Scanner scn2 = null;
 		try {
 			scn2 = new Scanner(file);
+			while(scn2.hasNextLine()) {
+				String line = scn2.nextLine();
+				String[] load = line.split(" ");
+				if(load.length == 3) {
+					String name = load[0];
+					String phone= load[1];
+					String birth = load[2];
+					 try {
+	                        Friend fnd = new Friend(name, phone, sdf.parse(birth));
+	                        friends.add(fnd);
+	                    } catch (ParseException e) {
+	                        e.printStackTrace();
+	                    }
+				}
+				
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
