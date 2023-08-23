@@ -116,4 +116,16 @@ public class BoardServiceImpl implements BoardService {
 	public int getTotal() {
 		return boardList.size();
 	}
+
+	@Override
+	public String getResponseUser(int brdNo) {//글번호 입력 -> 작성자출력
+		//boardList에서
+		for(int i=1;i<boardList.size();i++) {
+			if(boardList.get(i).getBrdNo() == brdNo) {
+				return boardList.get(i).getBrdWriter();
+			}
+		}
+		
+		return null;
+	}
 }

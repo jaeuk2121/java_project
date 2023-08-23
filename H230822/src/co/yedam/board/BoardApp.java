@@ -3,13 +3,15 @@ package co.yedam.board;
 import java.util.List;
 import java.util.Scanner;
 
+import co.yedam.reply.ReplyApp;
+
 public class BoardApp {
 
 	Scanner scn = new Scanner(System.in);
 
 	BoardService service = new BoardServiceJdbc();
-	UserService uservice = new UserServiceImpl();
-	String logid;
+	UserService uservice = new UserServiceJdbc();
+	String logId;
 
 	public void start() {
 		//	id/pw 가 맞으면 진행 아니면 반복문탈출x
@@ -19,9 +21,15 @@ public class BoardApp {
 			User user = new User();
 			user.setUserId(id);
 			user.setUserPw(pw);
-			if(uservice.checkLogin(user)) {
-				logid= id;
+			
+			user = uservice.checkLogin(user);
+			
+			if(user != null) {
+				System.out.println(user.getUserNm() + ", 환영합니다");
+				logId= id;
 				break;
+			}else {
+				System.out.println("로그인실패");
 			}
 		}
 		
@@ -68,7 +76,7 @@ public class BoardApp {
 	void register() {
 		String title = printString("제목입력");
 		String content = printString("내용입력");
-		String writer = logid;
+		String writer = logId;
 		Board board = new Board(title, content, writer);
 
 		if (service.add(board)) {
@@ -95,6 +103,7 @@ public class BoardApp {
 				}
 			}
 			System.out.println();
+			System.out.println("총 개수:" + service.getTotal());
 			System.out.print("조회페이지 입력 exit=9>>");
 			page = scn.nextInt();
 			if(page ==9) {
@@ -105,6 +114,10 @@ public class BoardApp {
 //update board set brd_content = 'dfdf' where brd_no=5; 
 	void modify() {
 		String brdNo = printString("글번호입력");
+		if(! service.getResponseUser(Integer.parseInt(brdNo)).equals(logId)) {
+			System.out.println("권한없음");
+			return;
+		}
 		String content = printString("내용입력");
 		Board brd = new Board();
 		brd.setBrdNo(Integer.parseInt(brdNo));
@@ -118,6 +131,8 @@ public class BoardApp {
 		String brdNo = printString("번호입력");
 		if (service.remove(Integer.parseInt(brdNo))) {
 			System.out.println("삭제성공");
+		}else {
+			System.out.println("삭제실패");
 		}
 	}
 
@@ -130,6 +145,9 @@ public class BoardApp {
 			
 			System.out.println(result.showInfo());
 		}
+		
+		ReplyApp rapp = new ReplyApp();
+		rapp.start();
 	}
 
 }
