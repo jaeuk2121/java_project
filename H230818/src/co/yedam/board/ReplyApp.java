@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class ReplyApp {
 	Scanner scn = new Scanner(System.in);
 	String logWriter;
 	int no;
 	ReplyService service = new ReplyServiceImpl();
 	List<Reply> rplist = new ArrayList<>();
-	 
+
 	public void start() {
-		
+
 		boolean run = true;
 
 		while (run) {
@@ -35,7 +34,7 @@ public class ReplyApp {
 			case 4:
 				System.out.println("종료");
 				service.save();
-				
+
 				run = false;
 			}
 
@@ -43,37 +42,36 @@ public class ReplyApp {
 	} // start end
 
 	void register() {
-		no++;
-		String content = printString("내용입력");
+		String content = printString("댓글 내용 입력");
 		String writer = logWriter;
-		int replyNo = no;
-		Reply rp = new Reply(replyNo, content, writer);
-		rplist.add(rp);
+
+		Reply reply = new Reply();
+		reply.setRpContent(content);
+		reply.setRpWriter(writer);
+
+		service.add(reply);
 
 	}
 
 	void replyList() {
+		List<Reply> replyList = service.list();
 
-		for (int i = 0; i < rplist.size(); i++) {
-			System.out.println(rplist.get(i).toString());
+		if (replyList.isEmpty()) {
+			System.out.println("댓글없음");
+		} else {
+			for (Reply reply : replyList) {
+				System.out.println(reply.toString());
+			}
 		}
-
 	}
 
 	void remove() {
-		System.out.println("삭제할 댓글번호입력");
-		int replyNo = scn.nextInt();
-		scn.nextLine();
-		try {
-			if (rplist.get(replyNo - 1) != null) {
-
-				rplist.remove(replyNo - 1);
-				System.out.println("삭제성공");
-			}
-		} catch (Exception e) {
+		String replyNo = printString("번호입력");
+		if (service.remove(Integer.parseInt(replyNo))) {
+			System.out.println("삭제성공");
+		}else {
 			System.out.println("삭제실패");
 		}
-
 	}
 
 	private String printString(String msg) {

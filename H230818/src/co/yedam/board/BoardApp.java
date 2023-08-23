@@ -3,14 +3,12 @@ package co.yedam.board;
 import java.util.List;
 import java.util.Scanner;
 
-import co.yedam.reply.ReplyApp;
-
 public class BoardApp {
 
 	Scanner scn = new Scanner(System.in);
 
-	BoardService service = new BoardServiceJdbc();
-	UserService uservice = new UserServiceJdbc();
+	BoardService service = new BoardServiceImpl();
+	UserService uservice = new UserServiceImpl();
 	String logId;
 
 	public void start() {

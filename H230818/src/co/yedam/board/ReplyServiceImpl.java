@@ -18,7 +18,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 	private void init() {
 		try {
-			FileInputStream fis = new FileInputStream("C:/Temp/reply.dat");
+			FileInputStream fis = new FileInputStream("C:/Temp/replylist.dat");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			rpList = (List<Reply>) ois.readObject();
 
@@ -26,7 +26,7 @@ public class ReplyServiceImpl implements ReplyService {
 			fis.close();
 
 		} catch (Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
@@ -47,8 +47,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Reply> list(int list) {
-		return null;
+	public List<Reply> list() {
+		  return rpList;
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void save() {
 		try {
-			FileOutputStream fos = new FileOutputStream("C:/Temp/reply.dat");
+			FileOutputStream fos = new FileOutputStream("C:/Temp/replylist.dat");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(rpList);
 			oos.flush();
